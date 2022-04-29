@@ -10,10 +10,7 @@ var postsRouter = require('./routes/posts')
 
 var app = express();
 
-// Database setting
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/week3_Post')
-    .then(res => console.log("DB connect success"));
+require('./connections')
 
 app.use(logger('dev'));
 app.use(express.json());
