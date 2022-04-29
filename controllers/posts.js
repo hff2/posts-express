@@ -52,7 +52,7 @@ const posts = {
     /* DELETE ONE */
     async deleteOnePost (req, res, next) {
         try {
-            const postId = req.params.postId
+            const postId = req.params.id
             const result = await Post.findByIdAndDelete(postId);
             if (!result) {
                 errorHandle(res, 400, '無此 Post')
@@ -69,7 +69,7 @@ const posts = {
     /* PATCH */
     async patchPosts(req, res, next) {
         try {
-            const postId = req.params.postId
+            const postId = req.params.id
             const { content } = req.body;
             if (!content) {
                 errorHandle(res, 400, '修改資料失敗，需填寫內文');
